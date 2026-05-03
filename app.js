@@ -58,8 +58,12 @@ const renderMenu = () => {
         categoryProducts.forEach(prod => {
             const productCard = document.createElement('div');
             productCard.classList.add('product-card');
+            productCard.onclick = (e) => {
+                if (!e.target.closest('button')) addToCart(prod.id);
+            };
             
             productCard.innerHTML = `
+                <img src="${prod.image}" alt="${prod.name}" class="product-image">
                 <div class="product-info">
                     <h3 class="product-name">${prod.name}</h3>
                     <p class="product-desc">${prod.desc}</p>
