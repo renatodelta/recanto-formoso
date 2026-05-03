@@ -5,14 +5,18 @@ const storeData = {
         start: 7, // 07:00
         end: 19   // 19:00
     },
-    version: "1.1.0"
+    version: "1.2.0"
 };
 
 const categories = [
+    { id: 'ofertas', name: '🔥 Super Ofertas' },
     { id: 'paes', name: '🥖 Pães Fresquinhos' },
     { id: 'bolos', name: '🍰 Bolos Caseiros' },
     { id: 'cafe', name: '☕ Café da Manhã' },
+    { id: 'leites', name: '🥛 Leites' },
     { id: 'bebidas', name: '🧃 Bebidas' },
+    { id: 'higiene', name: '🧽 Higiene' },
+    { id: 'bebes', name: '🍼 Bebês' },
     { id: 'kits', name: '🎁 Kits Promocionais' }
 ];
 
@@ -37,6 +41,21 @@ const products = [
     { id: 11, category: 'bebidas', name: 'Pingado / Média', price: 4.50, desc: 'Café com leite quentinho.', image: 'https://loremflickr.com/320/320/latte?lock=11' },
     { id: 12, category: 'bebidas', name: 'Suco de Laranja (300ml)', price: 7.00, desc: 'Natural da fruta, sem açúcar.', image: 'https://loremflickr.com/320/320/orangejuice?lock=12' },
     { id: 13, category: 'bebidas', name: 'Refrigerante Lata', price: 6.00, desc: 'Coca-Cola, Guaraná, etc.', image: 'https://loremflickr.com/320/320/soda?lock=13' },
+
+    // Ofertas
+    { id: 16, category: 'ofertas', name: 'Leite Condensado Moça', price: 6.50, desc: 'Lata 395g.', image: 'https://loremflickr.com/320/320/milk,can?lock=16' },
+    
+    // Leites
+    { id: 17, category: 'leites', name: 'Leite Integral (Litre)', price: 4.80, desc: 'Caixa 1L.', image: 'https://loremflickr.com/320/320/milk?lock=17' },
+    { id: 18, category: 'leites', name: 'Iogurte Natural', price: 3.50, desc: 'Copo 170g.', image: 'https://loremflickr.com/320/320/yogurt?lock=18' },
+
+    // Higiene
+    { id: 19, category: 'higiene', name: 'Detergente Limpol', price: 2.20, desc: 'Frasco 500ml.', image: 'https://loremflickr.com/320/320/detergent?lock=19' },
+    { id: 20, category: 'higiene', name: 'Papel Higiênico (4 rolos)', price: 5.50, desc: 'Folha dupla.', image: 'https://loremflickr.com/320/320/paper?lock=20' },
+
+    // Bebês
+    { id: 21, category: 'bebes', name: 'Fralda P (Pacote)', price: 25.00, desc: 'Pacote econômico.', image: 'https://loremflickr.com/320/320/diaper?lock=21' },
+    { id: 22, category: 'bebes', name: 'Lenço Umedecido', price: 12.00, desc: 'Pacote com 50 unidades.', image: 'https://loremflickr.com/320/320/wipes?lock=22' },
 
     // Kits
     { id: 14, category: 'kits', name: 'Kit Café Rápido', price: 10.00, desc: '1 Pingado + 1 Misto Quente.', image: 'https://loremflickr.com/320/320/breakfast,set?lock=14' },

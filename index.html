@@ -26,8 +26,19 @@
                 <span id="store-status" class="status-badge">Verificando...</span>
                 <span class="opening-hours">⏱ Seg a Sáb: 07:00 às 19:00</span>
             </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="product-search" placeholder="Buscar produtos... 🥖 🧀 🍰" onkeyup="filterMenu()">
+                <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
         </div>
     </header>
+
+    <!-- Category Nav Bar -->
+    <nav class="category-nav" id="category-nav">
+        <!-- Categories will be injected here -->
+    </nav>
 
     <!-- Out of hours banner -->
     <div id="closed-banner" class="closed-banner hidden">

@@ -31,19 +31,31 @@ const checkStoreStatus = () => {
 };
 
 // Renderiza o cardápio
-const renderMenu = () => {
+// Renderiza o cardápio
+const renderMenu = (filterQuery = '') => {
     const menuSection = document.getElementById('menu-section');
     menuSection.innerHTML = ''; // limpa a seção
 
+    const query = filterQuery.toLowerCase().trim();
+
     categories.forEach(category => {
         // Filtra os produtos desta categoria
-        const categoryProducts = products.filter(p => p.category === category.id);
+        let categoryProducts = products.filter(p => p.category === category.id);
         
+        // Se houver busca, filtra pelo nome ou descrição
+        if (query) {
+            categoryProducts = categoryProducts.filter(p => 
+                p.name.toLowerCase().includes(query) || 
+                (p.desc && p.desc.toLowerCase().includes(query))
+            );
+        }
+
         if (categoryProducts.length === 0) return;
 
         // Cria container da categoria
         const categoryBlock = document.createElement('div');
         categoryBlock.classList.add('category-block');
+        categoryBlock.id = `cat-${category.id}`;
         
         // Título da categoria
         const categoryTitle = document.createElement('h2');
@@ -67,7 +79,7 @@ const renderMenu = () => {
                 <img src="${prod.image}" alt="${prod.name}" class="product-image">
                 <div class="product-info">
                     <h3 class="product-name">${prod.name}</h3>
-                    <p class="product-unit">Unidade: 1</p>
+                    <p class="product-unit">${prod.desc || 'Unidade: 1'}</p>
                     <div class="product-price">${formatPrice(prod.price)}</div>
                 </div>
                 ${isInCart ? `
@@ -91,6 +103,62 @@ const renderMenu = () => {
         categoryBlock.appendChild(productGrid);
         menuSection.appendChild(categoryBlock);
     });
+
+    // Se a busca não retornar nada
+    if (menuSection.innerHTML === '' && query !== '') {
+        menuSection.innerHTML = `
+            <div class="no-results">
+                <p>Nenhum produto encontrado para "${filterQuery}"</p>
+                <button class="btn-secondary" onclick="clearSearch()">Ver todo o cardápio</button>
+            </div>
+        `;
+    }
+};
+
+// Renderiza a barra de navegação de categorias
+const renderCategoryNav = () => {
+    const nav = document.getElementById('category-nav');
+    nav.innerHTML = '';
+
+    categories.forEach(cat => {
+        const item = document.createElement('a');
+        item.classList.add('nav-item');
+        if (cat.id === 'ofertas') item.classList.add('bold');
+        
+        item.textContent = cat.name.replace(/[^\w\sÀ-ú]/g, '').trim(); // Remove emojis para a barra de nav como no anexo
+        item.onclick = () => scrollToCategory(cat.id);
+        
+        nav.appendChild(item);
+    });
+};
+
+// Filtra o menu baseado na busca
+const filterMenu = () => {
+    const query = document.getElementById('product-search').value;
+    renderMenu(query);
+};
+
+// Limpa a busca
+const clearSearch = () => {
+    document.getElementById('product-search').value = '';
+    renderMenu();
+};
+
+// Rola para a categoria
+const scrollToCategory = (catId) => {
+    const el = document.getElementById(`cat-${catId}`);
+    if (el) {
+        const offset = 160; // Compensar header e nav fixa
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = el.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
 };
 
 // Adiciona produto ao carrinho
@@ -263,6 +331,7 @@ const scrollToCart = () => {
 // Inicialização
 window.onload = () => {
     checkStoreStatus();
+    renderCategoryNav();
     renderMenu();
     toggleAddress(); // Ajusta estado inicial do endereço
     
