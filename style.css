@@ -431,18 +431,18 @@ input[type="text"]:focus, textarea:focus {
     bottom: 25px;
     left: 20px;
     right: 20px;
-    background: linear-gradient(135deg, var(--accent) 0%, #ad8a2c 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--primary) 0%, #633a11 100%);
+    color: var(--accent);
     border: none;
     padding: 12px 20px;
     border-radius: 16px;
     font-family: inherit;
-    box-shadow: 0 10px 25px rgba(197, 157, 51, 0.4);
+    box-shadow: 0 10px 25px rgba(75, 44, 13, 0.3);
     z-index: 100;
     display: none;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(197, 157, 51, 0.3);
 }
 
 .floating-cart:active {
@@ -458,13 +458,14 @@ input[type="text"]:focus, textarea:focus {
 
 .floating-cart-icon {
     font-size: 1.5rem;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(197, 157, 51, 0.15);
     width: 45px;
     height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 12px;
+    color: var(--accent);
 }
 
 .floating-cart-info {
@@ -477,12 +478,14 @@ input[type="text"]:focus, textarea:focus {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    color: white;
     opacity: 0.9;
 }
 
 .floating-cart-details {
     font-size: 1.1rem;
     font-weight: 800;
+    color: var(--accent);
 }
 
 @media (max-width: 767px) {

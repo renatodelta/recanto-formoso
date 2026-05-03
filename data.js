@@ -5,7 +5,7 @@ const storeData = {
         start: 7, // 07:00
         end: 19   // 19:00
     },
-    version: "1.2.2"
+    version: "1.2.3"
 };
 
 const categories = [
