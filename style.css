@@ -428,20 +428,61 @@ input[type="text"]:focus, textarea:focus {
 /* Mobile Floating Cart Button */
 .floating-cart {
     position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--accent);
+    bottom: 25px;
+    left: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--accent) 0%, #ad8a2c 100%);
     color: white;
     border: none;
-    padding: 14px 24px;
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: 700;
-    box-shadow: 0 8px 20px rgba(197, 157, 51, 0.4);
-    z-index: 50;
+    padding: 12px 20px;
+    border-radius: 16px;
+    font-family: inherit;
+    box-shadow: 0 10px 25px rgba(197, 157, 51, 0.4);
+    z-index: 100;
     display: none;
     cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.floating-cart:active {
+    transform: scale(0.95);
+}
+
+.floating-cart-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+}
+
+.floating-cart-icon {
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.floating-cart-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.floating-cart-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+.floating-cart-details {
+    font-size: 1.1rem;
+    font-weight: 800;
 }
 
 @media (max-width: 767px) {
@@ -589,3 +630,14 @@ input[type="text"]:focus, textarea:focus {
 .btn-secondary:hover {
     background: #e5e7eb;
 }
+ / *   A n i m a t i o n s   * / 
+ @ k e y f r a m e s   p u l s e - a n i m a t i o n   { 
+         0 %   {   t r a n s f o r m :   s c a l e ( 1 ) ;   } 
+         5 0 %   {   t r a n s f o r m :   s c a l e ( 1 . 0 5 ) ;   } 
+         1 0 0 %   {   t r a n s f o r m :   s c a l e ( 1 ) ;   } 
+ } 
+ 
+ . p u l s e   { 
+         a n i m a t i o n :   p u l s e - a n i m a t i o n   0 . 3 s   e a s e - i n - o u t ; 
+ }  
+ 

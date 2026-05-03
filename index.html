@@ -119,7 +119,15 @@
 
     <!-- Floating Cart Button for Mobile -->
     <button class="floating-cart" id="floating-cart" onclick="scrollToCart()">
-        🛍️ Ver Carrinho (<span id="floating-cart-count">0</span>)
+        <div class="floating-cart-content">
+            <span class="floating-cart-icon">🛒</span>
+            <div class="floating-cart-info">
+                <span class="floating-cart-text">Ver Carrinho</span>
+                <span class="floating-cart-details">
+                    <span id="floating-cart-count">0</span> itens • <span id="floating-cart-total">R$ 0,00</span>
+                </span>
+            </div>
+        </div>
     </button>
 
     <footer class="main-footer">

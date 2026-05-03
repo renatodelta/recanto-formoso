@@ -175,13 +175,6 @@ const addToCart = (productId) => {
     }
 
     updateCartUI();
-    
-    // Pequeno feedback visual no mobile (pode ser útil)
-    const floatBtn = document.getElementById('floating-cart');
-    floatBtn.style.transform = 'translateX(-50%) scale(1.1)';
-    setTimeout(() => {
-        floatBtn.style.transform = 'translateX(-50%) scale(1)';
-    }, 200);
 };
 
 // Altera quantidade no carrinho
@@ -244,9 +237,20 @@ const updateCartUI = () => {
 
     cartCount.textContent = totalItems;
     floatCount.textContent = totalItems;
+    
+    const floatTotal = document.getElementById('floating-cart-total');
+    if (floatTotal) floatTotal.textContent = formatPrice(totalPrice);
+    
     totalPriceEl.textContent = formatPrice(totalPrice);
     
     cartSummary.classList.remove('hidden');
+    
+    // Feedback visual no botão flutuante
+    const floatBtn = document.getElementById('floating-cart');
+    if (floatBtn) {
+        floatBtn.classList.add('pulse');
+        setTimeout(() => floatBtn.classList.remove('pulse'), 300);
+    }
     
     // Sincroniza os botões do cardápio
     renderMenu();
