@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informação Nutricional - Bolo de Cenoura | Recanto Formoso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4b2c0d;
+            --accent: #c59d33;
+            --bg: #fdfaf5;
+            --text: #2d1a08;
+            --border: #ece1d2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(75, 44, 13, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-text {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .product-name {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .nutrition-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border: 2px solid var(--primary);
+        }
+
+        .nutrition-table th, .nutrition-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nutrition-table th {
+            background-color: var(--primary);
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .row-main {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .row-sub {
+            padding-left: 25px !important;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .portion-info {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+        }
+
+        .ingredients-section {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .ingredients-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .ingredients-list {
+            font-size: 0.9rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <span class="logo-text">Recanto Formoso</span>
+            <h1 class="product-name">Bolo de Cenoura</h1>
+            <span class="badge">Sabor Artesanal</span>
+        </header>
+
+        <div class="portion-info">
+            Porção de 60g (1 fatia média)
+        </div>
+
+        <table class="nutrition-table">
+            <thead>
+                <tr>
+                    <th colspan="2">Informação Nutricional</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row-main">
+                    <td>Valor Energético</td>
+                    <td>252 kcal = 1058 kJ</td>
+                </tr>
+                <tr class="row-main">
+                    <td>Carboidratos</td>
+                    <td>34 g</td>
+                </tr>
+                <tr class="row-main">
+                    <td>Proteínas</td>
+                    <td>3,2 g</td>
+                </tr>
+                <tr class="row-main">
+                    <td>Gorduras Totais</td>
+                    <td>12 g</td>
+                </tr>
+                <tr class="row-sub">
+                    <td>Gorduras Saturadas</td>
+                    <td>2,1 g</td>
+                </tr>
+                <tr class="row-sub">
+                    <td>Gorduras Trans</td>
+                    <td>0 g</td>
+                </tr>
+                <tr class="row-main">
+                    <td>Fibra Alimentar</td>
+                    <td>1,2 g</td>
+                </tr>
+                <tr class="row-main">
+                    <td>Sódio</td>
+                    <td>145 mg</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="ingredients-section">
+            <h2 class="ingredients-title">Ingredientes</h2>
+            <p class="ingredients-list">
+                Cenoura fresca, farinha de trigo enriquecida com ferro e ácido fólico, ovos selecionados, açúcar cristal, óleo vegetal de soja, chocolate meio amargo (cobertura), fermento químico em pó. 
+                <br><br>
+                <span class="highlight">ALÉRGICOS:</span> CONTÉM OVOS, DERIVADOS DE TRIGO E SOJA. PODE CONTER LEITE. CONTÉM GLÚTEN.
+            </p>
+        </div>
+
+        <footer class="footer">
+            &copy; 2024 Recanto Formoso<br>
+            Produzido artesanalmente com carinho.
+        </footer>
+    </div>
+</body>
+</html>
