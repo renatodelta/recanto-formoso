@@ -2,10 +2,10 @@ const storeData = {
     name: "Recanto Formoso",
     phone: "5512997894423", // Coloque o número do WhatsApp aqui, com código do país (55) e DDD
     openingHours: {
-        start: 7, // 07:00
-        end: 19   // 19:00
+        start: 5, // 05:00
+        end: 24   // 00:00 (Fim do dia)
     },
-    version: "1.3.0"
+    version: "1.3.1"
 };
 
 const categories = [
