@@ -1,10 +1,11 @@
 const storeData = {
     name: "Padaria do Formoso",
-    phone: "5512991530244", // Coloque o número do WhatsApp aqui, com código do país (55) e DDD
+    phone: "5512997894423", // Coloque o número do WhatsApp aqui, com código do país (55) e DDD
     openingHours: {
         start: 7, // 07:00
         end: 19   // 19:00
-    }
+    },
+    version: "1.0.8"
 };
 
 const categories = [

@@ -58,18 +58,31 @@ const renderMenu = () => {
         categoryProducts.forEach(prod => {
             const productCard = document.createElement('div');
             productCard.classList.add('product-card');
-            productCard.onclick = (e) => {
-                if (!e.target.closest('button')) addToCart(prod.id);
-            };
             
+            // Verifica se produto está no carrinho
+            const cartItem = cart.find(item => item.id === prod.id);
+            const isInCart = !!cartItem;
+
             productCard.innerHTML = `
                 <img src="${prod.image}" alt="${prod.name}" class="product-image">
                 <div class="product-info">
                     <h3 class="product-name">${prod.name}</h3>
-                    <p class="product-desc">${prod.desc}</p>
+                    <p class="product-unit">Unidade: 1</p>
                     <div class="product-price">${formatPrice(prod.price)}</div>
                 </div>
-                <button class="btn-add" onclick="addToCart(${prod.id})">Adicionar</button>
+                ${isInCart ? `
+                    <div class="qty-selector">
+                        <button class="btn-qty-card" onclick="changeQty(${prod.id}, -1)">
+                            ${cartItem.qty === 1 ? '🗑️' : '-'}
+                        </button>
+                        <span class="card-qty-value">${cartItem.qty}</span>
+                        <button class="btn-qty-card" onclick="changeQty(${prod.id}, 1)">+</button>
+                    </div>
+                ` : `
+                    <button class="btn-add" onclick="addToCart(${prod.id})">
+                        Adicionar 🛒
+                    </button>
+                `}
             `;
             
             productGrid.appendChild(productCard);
@@ -166,6 +179,9 @@ const updateCartUI = () => {
     totalPriceEl.textContent = formatPrice(totalPrice);
     
     cartSummary.classList.remove('hidden');
+    
+    // Sincroniza os botões do cardápio
+    renderMenu();
 };
 
 // Alterna exibição do campo de endereço baseado no tipo de entrega
