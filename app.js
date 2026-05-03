@@ -266,6 +266,11 @@ window.onload = () => {
     renderMenu();
     toggleAddress(); // Ajusta estado inicial do endereço
     
+    // Define a versão no rodapé
+    if (document.getElementById('app-version-val')) {
+        document.getElementById('app-version-val').textContent = storeData.version;
+    }
+    
     // Atualiza status a cada minuto
     setInterval(checkStoreStatus, 60000);
 };
