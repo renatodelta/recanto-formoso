@@ -21,13 +21,7 @@ const checkStoreStatus = () => {
     const statusBadge = document.getElementById('store-status');
     const closedBanner = document.getElementById('closed-banner');
     
-    // Obtém a hora atual local
-    const now = new Date();
-    const currentHour = now.getHours();
-    
-    const { start, end } = storeData.openingHours;
-    
-    if (currentHour >= start && currentHour < end) {
+    if (storeData.status !== 'closed') {
         statusBadge.textContent = '🟢 Aberto agora';
         statusBadge.classList.add('open');
         statusBadge.classList.remove('closed');
@@ -351,7 +345,7 @@ window.onload = () => {
     
     // Define a versão no rodapé
     if (document.getElementById('app-version-val')) {
-        document.getElementById('app-version-val').textContent = storeData.version;
+        document.getElementById('app-version-val').textContent = storeData.version || "1.0.0";
     }
     
     // Atualiza status a cada minuto
