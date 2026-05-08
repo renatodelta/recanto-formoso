@@ -347,3 +347,53 @@ window.onload = () => {
     // Atualiza status a cada minuto
     setInterval(checkStoreStatus, 60000);
 };
+
+// PWA Installation Logic
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent the mini-infobar from appearing on mobile
+    e.preventDefault();
+    // Stash the event so it can be triggered later.
+    deferredPrompt = e;
+    // Update UI notify the user they can install the PWA
+    showInstallPromotion();
+});
+
+function showInstallPromotion() {
+    // Create a fixed banner at the bottom
+    const banner = document.createElement('div');
+    banner.id = 'pwa-install-banner';
+    banner.innerHTML = `
+        <div style="position: fixed; bottom: 80px; left: 10px; right: 10px; background: #4a3728; color: white; padding: 15px; border-radius: 10px; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+            <div>
+                <strong style="display:block;">Instalar Aplicativo</strong>
+                <span style="font-size: 0.9em;">Acesse nosso cardápio mais rápido!</span>
+            </div>
+            <button id="btn-install-pwa" style="background: #c9a66b; color: #4a3728; border: none; padding: 8px 15px; border-radius: 5px; font-weight: bold; cursor: pointer;">Instalar</button>
+            <button onclick="this.parentElement.parentElement.remove()" style="background: transparent; border: none; color: white; margin-left: 10px; font-size: 1.2em;">&times;</button>
+        </div>
+    `;
+    document.body.appendChild(banner);
+
+    document.getElementById('btn-install-pwa').addEventListener('click', async () => {
+        banner.remove();
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(\`User response to the install prompt: \${outcome}\`);
+            deferredPrompt = null;
+        }
+    });
+}
+
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').then((registration) => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, (err) => {
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+}
