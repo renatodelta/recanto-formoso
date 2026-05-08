@@ -350,10 +350,16 @@ let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
     // Prevent the mini-infobar from appearing on mobile
     e.preventDefault();
-    // Stash the event so it can be triggered later.
-    deferredPrompt = e;
-    // Update UI notify the user they can install the PWA
-    showInstallPromotion();
+    
+    // Verifica se o usuário está em um dispositivo móvel
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI notify the user they can install the PWA
+        showInstallPromotion();
+    }
 });
 
 function showInstallPromotion() {
@@ -377,7 +383,7 @@ function showInstallPromotion() {
         if (deferredPrompt) {
             deferredPrompt.prompt();
             const { outcome } = await deferredPrompt.userChoice;
-            console.log(\`User response to the install prompt: \${outcome}\`);
+            console.log(`User response to the install prompt: ${outcome}`);
             deferredPrompt = null;
         }
     });
