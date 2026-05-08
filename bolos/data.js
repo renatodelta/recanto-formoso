@@ -15,37 +15,45 @@ let products = [
     {
         id: 1,
         category: "bolos",
-        name: "Bolo de Cenoura com Chocolate",
+        name: "Cenoura com cobertura de chocolate",
         price: 35.00,
         desc: "Bolo fofinho de cenoura com cobertura cremosa de chocolate.",
-        image: "https://drive.google.com/uc?export=view&id=1nJR9QwAIUI1z8TDAqyiGBHGTHY5Z98Im"
+        image: "https://69fd4cf6867076fb670c5e56.imgix.net/IMG_0168.jpg?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
         id: 2,
         category: "bolos",
-        name: "Bolo de Fubá com Erva Doce",
+        name: "Limão com cobertura de limão",
         price: 25.00,
-        desc: "O clássico bolo de vó, perfeito para o café da tarde.",
-        image: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&q=80&w=200&h=200"
+        desc: "Bolo cítrico e refrescante com cobertura deliciosa de limão.",
+        image: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
         id: 3,
         category: "bolos",
-        name: "Bolo de Laranja",
-        price: 28.00,
-        desc: "Massa leve com calda fresca de laranja.",
-        image: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=200&h=200"
+        name: "Fubá com cobertura de goiabada",
+        price: 25.00,
+        desc: "O clássico bolo de fubá de vó, com deliciosa cobertura de goiabada derretida.",
+        image: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
         id: 4,
         category: "bolos",
-        name: "Bolo Formigueiro",
+        name: "Chocolate com cobertura de chocolate",
         price: 30.00,
-        desc: "Bolo branco com granulados de chocolate e cobertura.",
+        desc: "Massa fofinha de chocolate com cobertura cremosa, para os amantes de cacau.",
         image: "https://images.unsplash.com/photo-1605807646983-377bc5a76493?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
         id: 5,
+        category: "bolos",
+        name: "Maçã com canela",
+        price: 28.00,
+        desc: "Bolo artesanal de maçã com um toque super especial de canela.",
+        image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=200&h=200"
+    },
+    {
+        id: 6,
         category: "festas",
         name: "Bolo Ninho com Morango",
         price: 85.00,
@@ -53,7 +61,7 @@ let products = [
         image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
-        id: 6,
+        id: 7,
         category: "festas",
         name: "Bolo de Brigadeiro",
         price: 80.00,
@@ -61,7 +69,7 @@ let products = [
         image: "https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
-        id: 7,
+        id: 8,
         category: "festas",
         name: "Bolo Red Velvet",
         price: 95.00,
