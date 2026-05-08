@@ -2,7 +2,7 @@ let storeData = {
     name: "Delícias da Sobrinha",
     phone: "5512991885428", // Número do WhatsApp
     address: "Recanto Formoso, S/N",
-    hours: "Ter a Dom: 14h às 20h",
+    hours: "Seg a Dom: 08h às 20h",
     status: "open" // "open" ou "closed"
 };
 
