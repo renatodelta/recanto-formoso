@@ -51,29 +51,5 @@ let products = [
         price: 28.00,
         desc: "Bolo artesanal de maçã com um toque super especial de canela.",
         image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=200&h=200"
-    },
-    {
-        id: 6,
-        category: "festas",
-        name: "Bolo Ninho com Morango",
-        price: 85.00,
-        desc: "Massa branca recheada com brigadeiro de Leite Ninho e morangos frescos. (1kg)",
-        image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=200&h=200"
-    },
-    {
-        id: 7,
-        category: "festas",
-        name: "Bolo de Brigadeiro",
-        price: 80.00,
-        desc: "Massa de chocolate, recheio e cobertura de brigadeiro trufado. (1kg)",
-        image: "https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&q=80&w=200&h=200"
-    },
-    {
-        id: 8,
-        category: "festas",
-        name: "Bolo Red Velvet",
-        price: 95.00,
-        desc: "Massa vermelha aveludada com recheio de cream cheese. (1kg)",
-        image: "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?auto=format&fit=crop&q=80&w=200&h=200"
     }
 ];
