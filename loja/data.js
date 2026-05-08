@@ -28,7 +28,7 @@ let products = [
     { id: 3, category: 'paes', name: 'Pão Doce com Creme', price: 3.00, desc: 'Massa macia com creme de baunilha.', image: 'https://i.ytimg.com/vi/QMqo0yXDZ0Y/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAVeotn8raSQVj9bR0rmKTxhjCOTQ' },
 
     // Bolos
-    { id: 101, category: 'bolos', name: 'Bolo de Cenoura com Chocolate', price: 35.00, desc: 'Bolo fofinho de cenoura com cobertura cremosa de chocolate.', image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=200&h=200' },
+    { id: 101, category: 'bolos', name: 'Bolo de Cenoura com Chocolate', price: 35.00, desc: 'Bolo fofinho de cenoura com cobertura cremosa de chocolate.', image: 'https://drive.google.com/uc?export=view&id=1nJR9QwAIUI1z8TDAqyiGBHGTHY5Z98Im' },
     { id: 102, category: 'bolos', name: 'Bolo de Fubá com Erva Doce', price: 25.00, desc: 'O clássico bolo de vó, perfeito para o café da tarde.', image: 'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&q=80&w=200&h=200' },
     { id: 103, category: 'bolos', name: 'Bolo de Laranja', price: 28.00, desc: 'Massa leve com calda fresca de laranja.', image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=200&h=200' },
     { id: 104, category: 'bolos', name: 'Bolo Formigueiro', price: 30.00, desc: 'Bolo branco com granulados de chocolate e cobertura.', image: 'https://images.unsplash.com/photo-1605807646983-377bc5a76493?auto=format&fit=crop&q=80&w=200&h=200' },

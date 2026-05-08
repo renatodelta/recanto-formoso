@@ -18,7 +18,7 @@ let products = [
         name: "Bolo de Cenoura com Chocolate",
         price: 35.00,
         desc: "Bolo fofinho de cenoura com cobertura cremosa de chocolate.",
-        image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=200&h=200"
+        image: "https://drive.google.com/uc?export=view&id=1nJR9QwAIUI1z8TDAqyiGBHGTHY5Z98Im"
     },
     {
         id: 2,
