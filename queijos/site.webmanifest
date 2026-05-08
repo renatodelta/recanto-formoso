@@ -1,8 +1,8 @@
 {
   "name": "Seleção Recanto",
   "short_name": "Queijos",
-  "start_url": "/recantoformoso/queijos/index.html",
-  "scope": "/recantoformoso/queijos/",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "theme_color": "#4a3728",
   "background_color": "#fdfaf6",

@@ -1,8 +1,8 @@
 {
   "name": "Padaria do Formoso",
   "short_name": "Padaria",
-  "start_url": "/recantoformoso/loja/index.html",
-  "scope": "/recantoformoso/loja/",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "theme_color": "#4a3728",
   "background_color": "#fdfaf6",
