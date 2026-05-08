@@ -17,7 +17,8 @@ let categories = [
     { id: 'bebidas', name: '🧃 Bebidas' },
     { id: 'higiene', name: '🧽 Higiene' },
     { id: 'bebes', name: '🍼 Bebês' },
-    { id: 'kits', name: '🎁 Kits Promocionais' }
+    { id: 'kits', name: '🎁 Kits Promocionais' },
+    { id: 'festas', name: '🎂 Bolos de Festa' }
 ];
 
 let products = [
@@ -27,9 +28,15 @@ let products = [
     { id: 3, category: 'paes', name: 'Pão Doce com Creme', price: 3.00, desc: 'Massa macia com creme de baunilha.', image: 'https://i.ytimg.com/vi/QMqo0yXDZ0Y/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAVeotn8raSQVj9bR0rmKTxhjCOTQ' },
 
     // Bolos
-    { id: 4, category: 'bolos', name: 'Bolo de Cenoura com Chocolate', price: 15.00, desc: 'Pedaço generoso com muita cobertura.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS_EWtYJXZ7m2ZQibS0IeJ1Ie3dfOhL74wrw&s' },
-    { id: 5, category: 'bolos', name: 'Bolo de Fubá com Erva Doce', price: 12.00, desc: 'Clássico para acompanhar o café.', image: 'https://receitatodahora.com.br/wp-content/uploads/2022/10/bolo-de-fuba-delicioso.jpg' },
-    { id: 6, category: 'bolos', name: 'Bolo de Chocolate (Fatia)', price: 8.00, desc: 'Massa fofinha e molhadinha.', image: 'https://www.quater.com.br/wp-content/uploads/2024/07/Bolo-de-chocolate-1.png' },
+    { id: 101, category: 'bolos', name: 'Bolo de Cenoura com Chocolate', price: 35.00, desc: 'Bolo fofinho de cenoura com cobertura cremosa de chocolate.', image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=200&h=200' },
+    { id: 102, category: 'bolos', name: 'Bolo de Fubá com Erva Doce', price: 25.00, desc: 'O clássico bolo de vó, perfeito para o café da tarde.', image: 'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&q=80&w=200&h=200' },
+    { id: 103, category: 'bolos', name: 'Bolo de Laranja', price: 28.00, desc: 'Massa leve com calda fresca de laranja.', image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=200&h=200' },
+    { id: 104, category: 'bolos', name: 'Bolo Formigueiro', price: 30.00, desc: 'Bolo branco com granulados de chocolate e cobertura.', image: 'https://images.unsplash.com/photo-1605807646983-377bc5a76493?auto=format&fit=crop&q=80&w=200&h=200' },
+    
+    // Bolos de Festa
+    { id: 105, category: 'festas', name: 'Bolo Ninho com Morango', price: 85.00, desc: 'Massa branca recheada com brigadeiro de Leite Ninho e morangos frescos. (1kg)', image: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=200&h=200' },
+    { id: 106, category: 'festas', name: 'Bolo de Brigadeiro', price: 80.00, desc: 'Massa de chocolate, recheio e cobertura de brigadeiro trufado. (1kg)', image: 'https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&q=80&w=200&h=200' },
+    { id: 107, category: 'festas', name: 'Bolo Red Velvet', price: 95.00, desc: 'Massa vermelha aveludada com recheio de cream cheese. (1kg)', image: 'https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?auto=format&fit=crop&q=80&w=200&h=200' },
 
     // Café da Manhã
     { id: 7, category: 'cafe', name: 'Misto Quente', price: 8.00, desc: 'Pão francês, queijo derretido e presunto.', image: 'https://guiadacozinha.com.br/wp-content/uploads/2015/01/misto-quente-gratinado.jpg' },
