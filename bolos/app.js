@@ -1,12 +1,4 @@
-// --- INJECT LOCALSTORAGE DATA ---
-const savedData = localStorage.getItem('recanto_bolos_data');
-if(savedData) {
-    const parsed = JSON.parse(savedData);
-    storeData = parsed.storeData;
-    categories = parsed.categories;
-    products = parsed.products;
-}
-// ------------------------------
+
 
 // Estado do Carrinho
 let cart = [];
