@@ -1,79 +1,71 @@
-const storeData = {
-    "name": "Delícias da Sobrinha",
-    "phone": "5512997894423",
-    "openingHours": {
-        "start": 8,
-        "end": 20
-    },
-    "version": "1.0.0"
+let storeData = {
+    name: "Delícias da Sobrinha",
+    phone: "5511999999999", // Número do WhatsApp
+    address: "Recanto Formoso, S/N",
+    hours: "Ter a Dom: 14h às 20h",
+    status: "open" // "open" ou "closed"
 };
 
-const categories = [
-    {
-        "id": "tradicionais",
-        "name": "🍰 Bolos Tradicionais"
-    },
-    {
-        "id": "especiais",
-        "name": "✨ Bolos Especiais"
-    }
+let categories = [
+    { id: "bolos", name: "🍰 Bolos Caseiros" },
+    { id: "festas", name: "🎂 Bolos de Festa" }
 ];
 
-const products = [
+let products = [
     {
-        "id": 1,
-        "category": "tradicionais",
-        "name": "Bolo de Cenoura com Chocolate",
-        "price": 35,
-        "desc": "Bolo inteiro. Massa fofinha de cenoura com farta cobertura de brigadeiro.",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS_EWtYJXZ7m2ZQibS0IeJ1Ie3dfOhL74wrw&s"
+        id: 1,
+        category: "bolos",
+        name: "Bolo de Cenoura com Chocolate",
+        price: 35.00,
+        desc: "Bolo fofinho de cenoura com cobertura cremosa de chocolate.",
+        image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
-        "id": 2,
-        "category": "tradicionais",
-        "name": "Bolo de Fubá Cremoso",
-        "price": 28,
-        "desc": "Bolo inteiro. Receita da vovó, cremoso por dentro com aquele sabor de fazenda.",
-        "image": "https://receitatodahora.com.br/wp-content/uploads/2022/10/bolo-de-fuba-delicioso.jpg"
+        id: 2,
+        category: "bolos",
+        name: "Bolo de Fubá com Erva Doce",
+        price: 25.00,
+        desc: "O clássico bolo de vó, perfeito para o café da tarde.",
+        image: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
-        "id": 3,
-        "category": "tradicionais",
-        "name": "Bolo de Laranja",
-        "price": 25,
-        "desc": "Bolo inteiro. Feito com suco natural de laranja, perfeito para o café da tarde.",
-        "image": "https://www.receiteria.com.br/wp-content/uploads/bolo-de-laranja-de-liquidificador-2.jpg"
+        id: 3,
+        category: "bolos",
+        name: "Bolo de Laranja",
+        price: 28.00,
+        desc: "Massa leve com calda fresca de laranja.",
+        image: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
-        "id": 4,
-        "category": "tradicionais",
-        "name": "Bolo de Milho Verde",
-        "price": 30,
-        "desc": "Bolo inteiro. Feito com milho fresco, textura incrível e sabor autêntico.",
-        "image": "https://cdn.panelinha.com.br/receita/1588270921867-bolo-milho-1.jpg"
+        id: 4,
+        category: "bolos",
+        name: "Bolo Formigueiro",
+        price: 30.00,
+        desc: "Bolo branco com granulados de chocolate e cobertura.",
+        image: "https://images.unsplash.com/photo-1605807646983-377bc5a76493?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
-        "id": 5,
-        "category": "especiais",
-        "name": "Bolo Ninho com Nutella",
-        "price": 65,
-        "desc": "Bolo inteiro. Massa de cacau, recheio de leite ninho e cobertura de pura Nutella.",
-        "image": "https://comidinhasdochef.com/wp-content/uploads/2018/12/Bolo-Vulcao-de-Leite-Ninho-com-Nutella.jpg"
+        id: 5,
+        category: "festas",
+        name: "Bolo Ninho com Morango",
+        price: 85.00,
+        desc: "Massa branca recheada com brigadeiro de Leite Ninho e morangos frescos. (1kg)",
+        image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
-        "id": 6,
-        "category": "especiais",
-        "name": "Bolo Red Velvet",
-        "price": 75,
-        "desc": "Bolo inteiro. O clássico veludo vermelho com recheio original de cream cheese frosting.",
-        "image": "https://www.confeiteiradesucesso.com/wp-content/uploads/2019/12/receitaboloredvelvet.jpg"
+        id: 6,
+        category: "festas",
+        name: "Bolo de Brigadeiro",
+        price: 80.00,
+        desc: "Massa de chocolate, recheio e cobertura de brigadeiro trufado. (1kg)",
+        image: "https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
-        "id": 7,
-        "category": "especiais",
-        "name": "Bolo de Churros",
-        "price": 55,
-        "desc": "Bolo inteiro. Massa com toque de canela, recheado e coberto com doce de leite artesanal.",
-        "image": "https://guiadacozinha.com.br/wp-content/uploads/2019/10/bolo-churros-festa.jpg"
+        id: 7,
+        category: "festas",
+        name: "Bolo Red Velvet",
+        price: 95.00,
+        desc: "Massa vermelha aveludada com recheio de cream cheese. (1kg)",
+        image: "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?auto=format&fit=crop&q=80&w=200&h=200"
     }
 ];

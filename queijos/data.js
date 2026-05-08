@@ -1,20 +1,17 @@
-const storeData = {
+let storeData = {
     name: "Seleção Recanto",
-    phone: "5512997894423", // Coloque o número do WhatsApp aqui
-    openingHours: {
-        start: 8, // 08:00
-        end: 18   // 18:00
-    },
-    version: "1.0.0"
+    phone: "5511999999999", // Número do WhatsApp
+    address: "Recanto Formoso, S/N",
+    hours: "Ter a Dom: 10h às 18h",
+    status: "open" // "open" ou "closed"
 };
 
-const categories = [
-    { id: 'maturados', name: '🧀 Queijos Maturados' },
-    { id: 'frescos', name: '🥛 Queijos Frescos' },
-    { id: 'doces', name: '🍯 Doces & Acompanhamentos' }
+let categories = [
+    { id: "frescos", name: "🧀 Queijos Frescos" },
+    { id: "curados", name: "🧀 Queijos Curados" }
 ];
 
-const products = [
+let products = [
     // Maturados
     { 
         id: 1, 

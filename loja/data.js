@@ -1,14 +1,14 @@
-const storeData = {
-    name: "Recanto Formoso",
+let storeData = {
+    name: "Padaria do Formoso",
     phone: "5512997894423", // Coloque o número do WhatsApp aqui, com código do país (55) e DDD
     openingHours: {
-        start: 5, // 05:00
-        end: 24   // 00:00 (Fim do dia)
+        start: 6, // 05:00
+        end: 20   // 00:00 (Fim do dia)
     },
-    version: "1.5.0"
+    version: "1.0.0"
 };
 
-const categories = [
+let categories = [
     { id: 'ofertas', name: '🔥 Super Ofertas' },
     { id: 'paes', name: '🥖 Pães Fresquinhos' },
     { id: 'bolos', name: '🍰 Bolos Caseiros' },
@@ -20,7 +20,7 @@ const categories = [
     { id: 'kits', name: '🎁 Kits Promocionais' }
 ];
 
-const products = [
+let products = [
     // Pães
     { id: 1, category: 'paes', name: 'Pão Francês (Unidade)', price: 1.00, desc: 'Sempre quentinho, assado na hora.', image: 'https://static.wixstatic.com/media/8024f8_bac82cd0e1fd46a4966ef91db685dbf9~mv2.jpg/v1/fill/w_568,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/8024f8_bac82cd0e1fd46a4966ef91db685dbf9~mv2.jpg' },
     { id: 2, category: 'paes', name: 'Pão de Queijo', price: 2.50, desc: 'Tradicional receita de Minas Gerais.', image: 'https://msabores.com/wp-content/uploads/2024/02/Design-sem-nome.webp' },
