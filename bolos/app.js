@@ -13,7 +13,18 @@ const checkStoreStatus = () => {
     const statusBadge = document.getElementById('store-status');
     const closedBanner = document.getElementById('closed-banner');
     
-    if (storeData.status !== 'closed') {
+    const now = new Date();
+    const currentTime = now.getHours() * 100 + now.getMinutes();
+    
+    const [openH, openM] = storeData.openingTime.split(':').map(Number);
+    const [closeH, closeM] = storeData.closingTime.split(':').map(Number);
+    
+    const openTime = openH * 100 + openM;
+    const closeTime = closeH * 100 + closeM;
+
+    const isOpen = currentTime >= openTime && currentTime < closeTime;
+    
+    if (isOpen) {
         statusBadge.textContent = '🟢 Aberto agora';
         statusBadge.classList.add('open');
         statusBadge.classList.remove('closed');
@@ -27,80 +38,115 @@ const checkStoreStatus = () => {
 };
 
 // Renderiza o cardápio
-// Renderiza o cardápio
 const renderMenu = (filterQuery = '') => {
     const menuSection = document.getElementById('menu-section');
-    menuSection.innerHTML = ''; // limpa a seção
+    menuSection.innerHTML = ''; 
 
     const query = filterQuery.toLowerCase().trim();
 
-    categories.forEach(category => {
-        // Filtra os produtos desta categoria
-        let categoryProducts = products.filter(p => p.category === category.id);
-        
-        // Se houver busca, filtra pelo nome ou descrição
+    // Se houver categorias, mantém a lógica original
+    if (categories && categories.length > 0) {
+        categories.forEach(category => {
+            let categoryProducts = products.filter(p => p.category === category.id);
+            if (query) {
+                categoryProducts = categoryProducts.filter(p => 
+                    p.name.toLowerCase().includes(query) || 
+                    (p.desc && p.desc.toLowerCase().includes(query))
+                );
+            }
+            if (categoryProducts.length === 0) return;
+
+            const categoryBlock = document.createElement('div');
+            categoryBlock.classList.add('category-block');
+            categoryBlock.id = `cat-${category.id}`;
+            
+            const categoryTitle = document.createElement('h2');
+            categoryTitle.classList.add('category-title');
+            categoryTitle.textContent = category.name;
+            categoryBlock.appendChild(categoryTitle);
+
+            const productGrid = document.createElement('div');
+            productGrid.classList.add('product-grid');
+
+            categoryProducts.forEach(prod => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+                const cartItem = cart.find(item => item.id === prod.id);
+                const isInCart = !!cartItem;
+
+                productCard.innerHTML = `
+                    <img src="${prod.image}" alt="${prod.name}" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">${prod.name}</h3>
+                        <p class="product-unit">${prod.desc || 'Unidade: 1'}</p>
+                        <div class="product-price">${formatPrice(prod.price)}</div>
+                    </div>
+                    ${isInCart ? `
+                        <div class="qty-selector">
+                            <button class="btn-qty-card" onclick="changeQty(${prod.id}, -1)">
+                                ${cartItem.qty === 1 ? '🗑️' : '-'}
+                            </button>
+                            <span class="card-qty-value">${cartItem.qty}</span>
+                            <button class="btn-qty-card" onclick="changeQty(${prod.id}, 1)">+</button>
+                        </div>
+                    ` : `
+                        <button class="btn-add" onclick="addToCart(${prod.id})">
+                            Adicionar 🛒
+                        </button>
+                    `}
+                `;
+                productGrid.appendChild(productCard);
+            });
+            categoryBlock.appendChild(productGrid);
+            menuSection.appendChild(categoryBlock);
+        });
+    } else {
+        // Se NÃO houver categorias, renderiza todos os produtos em um único grid
+        let filteredProducts = products;
         if (query) {
-            categoryProducts = categoryProducts.filter(p => 
+            filteredProducts = products.filter(p => 
                 p.name.toLowerCase().includes(query) || 
                 (p.desc && p.desc.toLowerCase().includes(query))
             );
         }
 
-        if (categoryProducts.length === 0) return;
+        if (filteredProducts.length > 0) {
+            const productGrid = document.createElement('div');
+            productGrid.classList.add('product-grid');
 
-        // Cria container da categoria
-        const categoryBlock = document.createElement('div');
-        categoryBlock.classList.add('category-block');
-        categoryBlock.id = `cat-${category.id}`;
-        
-        // Título da categoria
-        const categoryTitle = document.createElement('h2');
-        categoryTitle.classList.add('category-title');
-        categoryTitle.textContent = category.name;
-        categoryBlock.appendChild(categoryTitle);
+            filteredProducts.forEach(prod => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+                const cartItem = cart.find(item => item.id === prod.id);
+                const isInCart = !!cartItem;
 
-        // Grid de produtos
-        const productGrid = document.createElement('div');
-        productGrid.classList.add('product-grid');
-
-        categoryProducts.forEach(prod => {
-            const productCard = document.createElement('div');
-            productCard.classList.add('product-card');
-            
-            // Verifica se produto está no carrinho
-            const cartItem = cart.find(item => item.id === prod.id);
-            const isInCart = !!cartItem;
-
-            productCard.innerHTML = `
-                <img src="${prod.image}" alt="${prod.name}" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name">${prod.name}</h3>
-                    <p class="product-unit">${prod.desc || 'Unidade: 1'}</p>
-                    <div class="product-price">${formatPrice(prod.price)}</div>
-                </div>
-                ${isInCart ? `
-                    <div class="qty-selector">
-                        <button class="btn-qty-card" onclick="changeQty(${prod.id}, -1)">
-                            ${cartItem.qty === 1 ? '🗑️' : '-'}
-                        </button>
-                        <span class="card-qty-value">${cartItem.qty}</span>
-                        <button class="btn-qty-card" onclick="changeQty(${prod.id}, 1)">+</button>
+                productCard.innerHTML = `
+                    <img src="${prod.image}" alt="${prod.name}" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">${prod.name}</h3>
+                        <p class="product-unit">${prod.desc || 'Unidade: 1'}</p>
+                        <div class="product-price">${formatPrice(prod.price)}</div>
                     </div>
-                ` : `
-                    <button class="btn-add" onclick="addToCart(${prod.id})">
-                        Adicionar 🛒
-                    </button>
-                `}
-            `;
-            
-            productGrid.appendChild(productCard);
-        });
+                    ${isInCart ? `
+                        <div class="qty-selector">
+                            <button class="btn-qty-card" onclick="changeQty(${prod.id}, -1)">
+                                ${cartItem.qty === 1 ? '🗑️' : '-'}
+                            </button>
+                            <span class="card-qty-value">${cartItem.qty}</span>
+                            <button class="btn-qty-card" onclick="changeQty(${prod.id}, 1)">+</button>
+                        </div>
+                    ` : `
+                        <button class="btn-add" onclick="addToCart(${prod.id})">
+                            Adicionar 🛒
+                        </button>
+                    `}
+                `;
+                productGrid.appendChild(productCard);
+            });
+            menuSection.appendChild(productGrid);
+        }
+    }
 
-        categoryBlock.appendChild(productGrid);
-        menuSection.appendChild(categoryBlock);
-    });
-
-    // Se a busca não retornar nada
     if (menuSection.innerHTML === '' && query !== '') {
         menuSection.innerHTML = `
             <div class="no-results">
@@ -331,7 +377,12 @@ const scrollToCart = () => {
 // Inicialização
 window.onload = () => {
     checkStoreStatus();
-    renderCategoryNav();
+    if (categories && categories.length > 0) {
+        renderCategoryNav();
+    } else {
+        const nav = document.getElementById('category-nav');
+        if (nav) nav.style.display = 'none';
+    }
     renderMenu();
     toggleAddress(); // Ajusta estado inicial do endereço
     
