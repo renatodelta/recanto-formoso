@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://renatodelta.github.io/recanto-formoso/bolos/sitemap.xml
