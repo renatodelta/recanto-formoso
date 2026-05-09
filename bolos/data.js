@@ -4,7 +4,8 @@ let storeData = {
     address: "Recanto Formoso, S/N",
     hours: "Seg a Dom: 07:00 às 20:00",
     openingTime: "07:00",
-    closingTime: "20:00"
+    closingTime: "20:00",
+    deliveryFee: 5.00
 };
 
 let categories = [];

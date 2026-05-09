@@ -280,10 +280,32 @@ const updateCartUI = () => {
     cartCount.textContent = totalItems;
     floatCount.textContent = totalItems;
     
-    const floatTotal = document.getElementById('floating-cart-total');
-    if (floatTotal) floatTotal.textContent = formatPrice(totalPrice);
+    // Calcula taxas e total
+    const deliveryTypeInput = document.querySelector('input[name="delivery-type"]:checked');
+    const deliveryType = deliveryTypeInput ? deliveryTypeInput.value : 'entrega';
+    const deliveryFee = deliveryType === 'entrega' ? (storeData.deliveryFee || 0) : 0;
+    const finalTotal = totalPrice + deliveryFee;
+
+    // Atualiza resumo
+    const subtotalEl = document.getElementById('subtotal-price');
+    const deliveryFeeRow = document.getElementById('delivery-fee-row');
+    const deliveryFeeEl = document.getElementById('delivery-fee-value');
     
-    totalPriceEl.textContent = formatPrice(totalPrice);
+    if (subtotalEl) subtotalEl.textContent = formatPrice(totalPrice);
+    
+    if (deliveryFeeRow && deliveryFeeEl) {
+        if (deliveryType === 'entrega') {
+            deliveryFeeRow.classList.remove('hidden');
+            deliveryFeeEl.textContent = formatPrice(deliveryFee);
+        } else {
+            deliveryFeeRow.classList.add('hidden');
+        }
+    }
+
+    const floatTotal = document.getElementById('floating-cart-total');
+    if (floatTotal) floatTotal.textContent = formatPrice(finalTotal);
+    
+    totalPriceEl.textContent = formatPrice(finalTotal);
     
     cartSummary.classList.remove('hidden');
     
@@ -311,6 +333,9 @@ const toggleAddress = () => {
         addressGroup.classList.remove('hidden');
         addressInput.setAttribute('required', 'true');
     }
+
+    // Atualiza o total com/sem taxa de entrega
+    updateCartUI();
 };
 
 // Envia pedido para o WhatsApp
@@ -349,13 +374,21 @@ const sendToWhatsApp = () => {
     
     message += `\n*Itens do Pedido:*\n`;
     
-    let total = 0;
+    let subtotal = 0;
     cart.forEach(item => {
         message += `• ${item.qty}x ${item.name} - ${formatPrice(item.price * item.qty)}\n`;
-        total += (item.price * item.qty);
+        subtotal += (item.price * item.qty);
     });
     
-    message += `\n*Total da Compra:* ${formatPrice(total)}\n`;
+    const deliveryFee = deliveryType === 'entrega' ? (storeData.deliveryFee || 0) : 0;
+    const total = subtotal + deliveryFee;
+
+    if (deliveryType === 'entrega') {
+        message += `\n*Subtotal:* ${formatPrice(subtotal)}\n`;
+        message += `*Taxa de Entrega:* ${formatPrice(deliveryFee)}\n`;
+    }
+    
+    message += `\n*Total do Pedido:* ${formatPrice(total)}\n`;
     
     if (notes) {
         message += `\n*Observações:* ${notes}\n`;
