@@ -633,14 +633,14 @@ input[type="text"]:focus, textarea:focus {
 .btn-secondary:hover {
     background: #e5e7eb;
 }
- / *   A n i m a t i o n s   * / 
- @ k e y f r a m e s   p u l s e - a n i m a t i o n   { 
-         0 %   {   t r a n s f o r m :   s c a l e ( 1 ) ;   } 
-         5 0 %   {   t r a n s f o r m :   s c a l e ( 1 . 0 5 ) ;   } 
-         1 0 0 %   {   t r a n s f o r m :   s c a l e ( 1 ) ;   } 
- } 
- 
- . p u l s e   { 
-         a n i m a t i o n :   p u l s e - a n i m a t i o n   0 . 3 s   e a s e - i n - o u t ; 
- }  
- 
+
+/* Animations */
+@keyframes pulse-animation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse-animation 0.3s ease-in-out;
+}
